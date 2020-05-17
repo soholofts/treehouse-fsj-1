@@ -115,6 +115,20 @@ h1 {
   font-style: normal;
 }
 
+
+.location {
+  font-style: normal;
+}
+
+.location:before {
+  content: " , (";
+  font-style: normal;
+}
+.location:after {
+  content: ")";
+  font-style: normal;
+}
+
 @media (min-width: 768px) {
   body {
     padding: 25px;
