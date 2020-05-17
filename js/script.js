@@ -257,13 +257,27 @@ function printQuote() {
 
 	// log quote, html text and randon background color
 	console.log('printQuote()',q, html, rgb);
+
+	// Clear the existing interval timer and start a new one 
+	startInterval();
 }
 
 
 // Set the quote to automatically refresh every 10 seconds
-setInterval(printQuote, 10000);
+let intervalHandle;
 
+function startInterval() {
+	
+	// Clear last interval timer if exists
+	if(intervalHandle) {
+		clearInterval(intervalHandle);
+	}
+	
+	// start a new interval timer and save handle
+	intervalHandle = setInterval(printQuote, 10000);
+} 
 
+startInterval();
 
 /***
  * click event listener for the print quote button
