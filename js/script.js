@@ -209,7 +209,7 @@ var last = -1; // Hold last quote index
 
 function getRandomQuote() {
 
-	const numberOfQuotes = 4;//quotes.length;
+	const numberOfQuotes = quotes.length;
 
 	// Calc a random quote index between 0 and (numberOfQuotes - 1)
 	//const i = Math.floor(numberOfQuotes * Math.random());
