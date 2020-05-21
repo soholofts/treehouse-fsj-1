@@ -205,18 +205,28 @@ function getRandomRgb() {
 /***
  * getRandomQuote returns a random object from the quotes array
 ***/
+var last = -1; // Hold last quote index
+
 function getRandomQuote() {
-  const numberOfQuotes = quotes.length;
 
-  // Calc a random quote index between 0 and (numberOfQuotes - 1)
-  //const i = Math.floor(numberOfQuotes * Math.random());
-  const i = getRandomNumber(0, numberOfQuotes - 1);
+	const numberOfQuotes = 4;//quotes.length;
 
-  // log random quote index and random quote object
-  console.log('getRandomQuote()',`index = ${i} `, quotes[i]);
+	// Calc a random quote index between 0 and (numberOfQuotes - 1)
+	//const i = Math.floor(numberOfQuotes * Math.random());
+	let i = -1;
+	
+	// Try again if same as last time
+	do {
+		i = getRandomNumber(0, numberOfQuotes - 1);
+	} while( i == last);
 
-  // Return the random quote object
-  return quotes[i];
+	last = i;
+
+	// log random quote index and random quote object
+	console.log('getRandomQuote()',`index = ${i} `, quotes[i]);
+
+	// Return the random quote object
+	return quotes[i];
 }
 
 getRandomQuote();
